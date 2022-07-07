@@ -1,0 +1,28 @@
+<div class="py-5">
+  <input [(ngModel)]='term' class="form-control w-50 m-auto"/>
+</div>
+<div class="row">
+  <div class="col-md-4 py-5 text-white">
+    <div class="border w-25"></div>
+    <h4>Popular Movies <br>Right Now</h4>
+    <p>Most Trending Movies This Month</p>
+    <div class="border"></div>
+  </div>
+  <div *ngFor="let movie of trendingAll|search:term; let i = index" class="col-md-2 my-2">
+    <a [routerLink]="['/moviedetails', i]">
+    <div class="movie position-relative">
+      <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="movie poster" class="img-fluid">
+      <h6 class="text-white my-2">{{movie.title == undefined ? movie.name:movie.title|watchs}}</h6>
+    <div class="vote">{{movie.vote_average}}</div>
+  </div>
+</a>
+  </div>
+</div>
+
+
+<div class="w-50 mx-auto my-5 py-5 d-flex">
+  <i (click)='prev()' class="fas text-white fa-2x fa-arrow-alt-circle-left    "></i>
+  <div class="p-3 text-white" *ngFor="let pageNumber of pageNumbers; let i =index"  (click)='changeNumber(pageNumber)'>{{pageNumber}}</div>
+  <i (click)='next()' class="fas text-white fa-2x fa-arrow-alt-circle-right    "></i>
+
+</div>

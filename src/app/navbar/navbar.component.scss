@@ -1,0 +1,20 @@
+@import '../../styles.scss';
+nav
+{
+  ul{
+    li{
+      a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+          background: #fff;
+          color: #000;
+        }
+      }
+    }
+  }
+}

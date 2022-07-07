@@ -1,0 +1,48 @@
+<form [formGroup]="contactsForm" (ngSubmit)="saveForm()">
+  <div class="form-group">
+    <label for="">clientName: </label>
+    <input formControlName="clientName" type="text" class="form-control">
+    <small>clientName between 2 and 20</small>
+    <div *ngIf="contactsForm.controls.clientName.errors != null" class="border border-danger p-2 m-2">
+      <p class="text-danger">clientName not Valid</p>
+    </div>
+  </div>
+  <!-- ============ -->
+  <div class="form-group">
+    <label for="">clientAge: </label>
+    <input formControlName="clientAge" type="text" class="form-control">
+    <small>clientAge between 10 and 100</small>
+    <div *ngIf="contactsForm.controls.clientAge.errors != null" class="border border-danger p-2 m-2">
+      <p class="text-danger">clientAge not Valid</p>
+    </div>
+  </div>
+    <!-- ============ -->
+    <div class="form-group">
+      <label for="">clientMail: </label>
+      <input formControlName="clientMail" type="text" class="form-control">
+      <small>clientMail must be valid</small>
+      <div *ngIf="contactsForm.controls.clientMail.errors != null" class="border border-danger p-2 m-2">
+        <p class="text-danger">clientMail not Valid</p>
+      </div>
+    </div>
+      <!-- ============ -->
+  <div class="form-group">
+    <label for="">messageTitle: </label>
+    <input formControlName="messageTitle" type="text" class="form-control">
+    <small>messageTitle between 2 and 20 and starts with capital litter</small>
+    <div *ngIf="contactsForm.controls.messageTitle.errors != null && contactsForm.controls.messageTitle.touched"  class="border border-danger p-2 m-2">
+      <p class="text-danger">messageTitle not Valid</p>
+    </div>
+  </div>
+        <!-- ============ -->
+        <div class="form-group">
+          <label for="">messageBody: </label>
+          <textarea formControlName="messageBody" type="text" class="form-control">
+          </textarea>
+          <small>messageBody between 2 and 100 and starts with capital litter</small>
+          <div *ngIf="contactsForm.controls.messageBody.errors != null && contactsForm.controls.messageBody.touched" class="border border-danger p-2 m-2">
+            <p class="text-danger">messageBody not Valid</p>
+          </div>
+        </div>
+        <button [disabled]="contactsForm.invalid" type="submit" class="btn btn-info">Send</button>
+</form>
